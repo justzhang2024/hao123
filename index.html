@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hao123 - 简洁高效</title>
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH6AMbCxsS9C4m7wAAAidJREFUeNrt20FrE0EYxvH/m02SNo0mSbeptS0iYvHgvYge9SBe9SBe9SBe9SBePHjw4MGDV9GDeBAvYvHgvYgeFUTUonSbtEnS7m6S9fEwaSptYmI309mdfR4YmF129v3mY96ZpSFECCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEELI/9Kj60DXvPz0YVAsFvMAnueVy+XSf7vA9/3fSqmNMAwPtmC7fBfAzszMvO92u0v8YfV6fXFhYeH9f11QKpXW2u32S9v9vV7vI7Z7F7Db7T6p1WqP7fbfSClPbdcFsFarve73+4/tYOfm5t632+3XtlAul0v9fv9ZGIYHthCGoZ9S+m67m0qp9SAIDmzXBajVam/7/f5Te9iFhYWVra2tV9ZCoVDIDwaDx67r/rS7fRRFX6SUX+1gCoXCZhiGh7Z7D6BSqSwwv2v1ev01v86O67o/6vX6G37PCoXCRqFQWHbd76eU3rP7zC9L6XveX+Z3uV+HlLIghBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCHEn7mO6/q691/i/C7369YJpJRFIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhPgz13FdX/f+S5zf5X7dOoGUsiiEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQ4v80OzsLv9X7E6UAAAAASUVORK5CYII=" type="image/png">
+    
     <style>
         :root {
             --primary: #2563eb; 
@@ -13,103 +14,71 @@
             --text: #1e293b; 
             --muted: #64748b; 
             --border: #e2e8f0;
-            --accent: #f97316; /* 增加一个橙色变量，契合图标颜色 */
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
         body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
         
+        /* Header & Logo */
         header { 
             background: var(--card); 
-            padding: 1rem; 
+            padding: 1.2rem; 
             text-align: center; 
             border-bottom: 1px solid var(--border);
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
-        /* Logo 样式：确保图片高度适中且居中 */
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 40px;
-        }
-        .logo-img {
-            height: 100%;
+        .logo-svg {
+            height: 42px;
             width: auto;
-            object-fit: contain;
+            cursor: pointer;
         }
 
-        main { flex: 1; max-width: 600px; margin: 2rem auto; width: 90%; }
+        /* Main Content */
+        main { flex: 1; max-width: 600px; margin: 2rem auto; width: 92%; }
         
         .card { 
             background: var(--card); 
             border: 1px solid var(--border); 
-            border-radius: 12px; /* 圆角稍微加大，更现代 */
-            padding: 1.25rem; 
+            border-radius: 12px; 
+            padding: 1.2rem; 
             margin-bottom: 1rem; 
             display: flex; 
             align-items: center; 
             justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.2s;
         }
         
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
-        .info { overflow: hidden; margin-right: 15px; }
-        .label { 
-            display: block; 
-            font-size: 0.85rem; 
-            font-weight: 600; 
-            color: var(--muted); 
-            margin-bottom: 4px; 
-            text-transform: uppercase;
-            letter-spacing: 0.025em;
-        }
-        .url { 
-            color: var(--primary); 
-            text-decoration: none; 
-            font-size: 0.95rem; 
-            word-break: break-all; 
-            font-weight: 500; 
-        }
-        .url:hover { text-decoration: underline; }
+        .info { overflow: hidden; margin-right: 12px; }
+        .label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; }
+        .url { color: var(--primary); text-decoration: none; font-size: 0.95rem; font-weight: 500; word-break: break-all; }
         
         .copy-btn { 
-            background: #f1f5f9; 
-            border: none; 
-            padding: 8px 16px; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            font-size: 0.85rem; 
-            font-weight: 500;
-            transition: 0.2s; 
-            white-space: nowrap;
-            color: var(--text);
+            background: #f1f5f9; border: none; padding: 10px 18px; border-radius: 8px; 
+            cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: 0.2s; white-space: nowrap;
         }
         .copy-btn:hover { background: #e2e8f0; }
-        .copy-btn:active { transform: scale(0.95); }
         .success { background: #dcfce7 !important; color: #166534; }
 
-        footer { text-align: center; padding: 3rem 2rem; color: var(--muted); font-size: 0.85rem; }
-        
-        /* 移动端适配 */
+        footer { text-align: center; padding: 3rem; color: var(--muted); font-size: 0.85rem; }
+
         @media (max-width: 480px) {
             .card { flex-direction: column; align-items: flex-start; }
-            .copy-btn { margin-top: 12px; width: 100%; text-align: center; }
+            .copy-btn { margin-top: 12px; width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="hao123" class="logo-img">
-        </div>
+        <svg class="logo-svg" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 10V40M20 25H35M35 10V40" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="55" cy="30" r="10" stroke="#f97316" stroke-width="6"/>
+            <path d="M80 15L95 15L95 40" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+            <text x="105" y="38" fill="#f97316" font-family="Arial" font-weight="bold" font-size="28">123</text>
+        </svg>
     </header>
 
     <main id="list"></main>
@@ -117,7 +86,6 @@
     <footer>&copy; <span id="year"></span> Just. All rights reserved.</footer>
 
     <script>
-        // --- 数据配置区 ---
         const links = [
             { label: "WMS-GoogleSite", url: "https://sites.google.com/nis.ac.th/wms/home" },
             { label: "WMS-Vercle", url: "https://writingms.vercel.app" } ,
@@ -130,7 +98,6 @@
             { label: "Supabase", url: "https://supabase.com" }
         ];
 
-        // 自动渲染列表
         const container = document.getElementById('list');
         container.innerHTML = links.map(item => `
             <div class="card">
@@ -142,24 +109,16 @@
             </div>
         `).join('');
 
-        // 复制功能
         function copyText(text, btn) {
             navigator.clipboard.writeText(text).then(() => {
                 const old = btn.innerText;
                 btn.innerText = '已复制';
                 btn.classList.add('success');
-                setTimeout(() => { 
-                    btn.innerText = old; 
-                    btn.classList.remove('success'); 
-                }, 1500);
-            }).catch(err => {
-                console.error('无法复制', err);
+                setTimeout(() => { btn.innerText = old; btn.classList.remove('success'); }, 1500);
             });
         }
 
-        // 时间逻辑
-        const start = 2026, now = new Date().getFullYear();
-        document.getElementById('year').innerText = now > start ? `${start}-${now}` : start;
+        document.getElementById('year').innerText = new Date().getFullYear();
     </script>
 </body>
 </html>
