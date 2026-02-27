@@ -101,14 +101,14 @@
                     <span class="label">${item.label}</span>
                     <a href="${item.url}" class="url" target="_blank">${item.url}</a>
                 </div>
-                <button class="copy-btn" onclick="copyText('${item.url}', this)">复制</button>
+                <button class="copy-btn" onclick="copyText('${item.url}', this)">Copy</button>
             </div>
         `).join('');
 
         function copyText(text, btn) {
             navigator.clipboard.writeText(text).then(() => {
                 const old = btn.innerText;
-                btn.innerText = '已复制';
+                btn.innerText = 'Copyed';
                 btn.classList.add('success');
                 setTimeout(() => { btn.innerText = old; btn.classList.remove('success'); }, 1500);
             });
